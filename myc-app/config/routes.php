@@ -89,6 +89,7 @@ Router::scope('/', function (RouteBuilder $routes) {
      * routes you want in your application.
      */
     $routes->fallbacks(DashedRoute::class);
+
 });
 
 /**
@@ -102,3 +103,6 @@ Router::scope('/', function (RouteBuilder $routes) {
  * });
  * ```
  */
+Router::scope('/articles', function (RouteBuilder $routes) {
+    $routes->connect('/tagged/*', ['controller' => 'Articles', 'action' => 'tags']);
+});
